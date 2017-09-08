@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+        <record id="create_db_invoice_form_view" model="ir.ui.view">
+            <field name="name">create_db_invoice_form_view</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="create_db_invoice" type="object" string="Update DB"/>
+                </header>
+            </field>
+        </record>
+    </data>
+</openerp>

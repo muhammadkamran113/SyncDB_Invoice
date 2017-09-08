@@ -1,0 +1,41 @@
+<openerp>
+    <data>
+        <record id="create_db_invoice_configuration_view" model="ir.ui.view">
+            <field name="name">create_db_invoice_configuration_view</field>
+            <field name="model">invoice.config.db</field>
+            <field name="arch" type="xml">
+                <form string="invoice Configuration DB" class="oe_form_configuration">
+                    <header>
+                        <button string="Save" type="object"
+                            name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                            name="cancel" class="oe_link"/>
+                    </header>
+                    <group string="Configuration">
+                        <group name="left">
+                            <field name="url" />
+                            <field name="user" />
+                        </group>
+                        <group name="right">
+                            <field name="db" />
+                            <field name="password" password="True"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="create_db_invoice_configuration_action" model="ir.actions.act_window">
+            <field name="name">DB Configuration</field>
+            <field name="res_model">invoice.config.db</field>
+            <field name="view_id" ref="create_db_invoice_configuration_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="sync_db_configuration_menu" name="DB Credentials"
+            parent="base.menu_config" action="create_db_invoice_configuration_action"/>
+
+    </data>
+</openerp>
